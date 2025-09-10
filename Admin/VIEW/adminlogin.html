@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="../CSS/style.css">
+    </head>
+    <body>
+    <center> 
+
+        <h1>Login</h1>
+        <form method = "POST" action = "../PHP/loginvalidation.php">
+        
+        <p>
+        <input type = "text" name = "username" placeholder = "Username" >
+        <span id="usernameError" style = "color: red;"></span>
+        </p>    
+
+        <p>
+        <input type = "password" name = "password" placeholder = "Password" >
+        <span id="passwordError" style = "color: red;"></span>
+        </p>
+
+        <button type = "submit">Submit</button><br><br>
+        <a href = "registration.html">Do you want to do registration?</a></tr>
+
+        </form>
+
+        <p id = "successmsg" style = "color: green;"></p>
+    </center>
+       
+    </body>
+</html>

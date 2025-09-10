@@ -1,0 +1,34 @@
+body{
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    color: Black;
+    margin: 0;
+    padding: 80px 20px;  
+    font-size: 25px;
+}
+
+.team{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: black;
+}
+
+#admin{
+    width: 350px;
+    height: 350px;
+    border-radius: 10px;
+    margin: 50px;
+    float: center;
+    border: solid black 2px;
+}
+
+#user{
+    width: 350px;
+    height: 350px;
+    border-radius: 10px;
+    margin: 50px;
+    float: center;
+    border: solid black 2px;
+}
+
