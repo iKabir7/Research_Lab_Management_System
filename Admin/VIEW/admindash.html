@@ -10,21 +10,380 @@
    
         <img src="../IMAGE/admin.jpg">
         <h1>Iqramul Kabir</h1>
-        <ul>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="member.html">Member</a></li>
-            <li><a href="project.html">Project</a></li>
-            <li><a href="annoucements.html">Annoucements</a></li>
-            <li><a href="equipement.html">Booked Equipement</a></li>
-            <li><a href="fund.html">Grant Fund</a></li>
-            <li><a href="reports.html">Reports</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="logout.html">Logout</a></li>
+
+        <ul class="nav-links">
+            <li><a onclick="showSection('dashboard')">Dashboard</a></li>
+            <li><a onclick="showSection('member')">Member</a></li>
+            <li><a onclick="showSection('project')">Project</a></li>
+            <li><a onclick="showSection('annoucement')">Annoucements</a></li>
+            <li><a onclick="showSection('equipement')">Booked Equipement</a></li>
+            <li><a onclick="showSection('fund')">Grant Fund</a></li>
+            <li><a onclick="showSection('reports')">Reports</a></li>
+            <li><a onclick="showSection('settings')">Settings</a></li>
+            <li><a onclick="logout()">Logout</a></li>
         </ul>
 
     </div>
 
-    <div class="content">
-        <h1>Welcome to the Admin Dashboard</h1>
-    </div>
+   <script>
+      function showSection(sectionId){
+        const sections = document.querySelectorAll('.section');
+       sections.forEach(section => {
+            section.style.display = 'none';
+        });
+        document.getElementById(sectionId).style.display = 'block';
+    }
+
+    function logout() {
+        if (confirm("Are you sure you want to logout?")) {
+            window.location.href = "../PHP/logout.php";
+        }
+    }
+
+   </script>
+
+   
+   <div class="content">
+        <section id="dashboard" class="section active">
+            <h2>Dashboard</h2>
+            <p>Welcome to the Admin Dashboard.</p>
+
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>Total Members</h3>
+                    <p id="totalMembers">1</p>
+                </div>
+                <div class="card">
+                    <h3>Ongoing Projects</h3>
+                    <p id="ongoingProjects">2</p>
+                </div>
+                <div class="card">
+                    <h3>Pending Fund Requests</h3>
+                    <p id="pendingFunds">1</p>
+                </div>
+                <div class="card">
+                    <h3>Booked Equipment</h3>
+                    <p id="bookedEquipment">5</p>
+                </div>
+        </section>
+
+        <section id="member" class="section active">
+            <h2>Member Management</h2>
+            <p>Manage lab members here.</p>
+            <!-- Member list table -->
+            <table>
+            <thead>
+                <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="memberTableBody">
+                <!-- Dynamic member rows will be loaded here -->
+            </tbody>
+            </table>
+        </section>
+
+        <section id="project" class="section active ">
+            <h2>Project Management</h2>
+            <p>Manage research projects here.</p>
+            <!-- Project list table -->
+            <table>
+            <thead>
+                <tr>
+                <th>Project Name</th>
+                <th>Lead</th>
+                <th>Status</th>
+                <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="projectTableBody">
+                <!-- Dynamic project rows will be loaded here -->
+            </tbody>
+            </table>
+        </section>
+
+        <section id="annoucement" class="section active">
+            <h2>Announcements</h2>
+
+            <div class="announcement-form">
+                <form>
+                    <label for="announcement">New Announcement:</label><br>
+                    <textarea id="announcement" name="announcement" rows="4" cols="50"></textarea><br>
+                    <button type="submit">Post Announcement</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="equipement" class="section active">
+            <h2>Booked Equipment</h2>
+            <p>View and manage booked equipment here.</p>
+        
+            <div id="equipementList" style="display: flex; flex-wrap: wrap; gap: 20px;">
+    
+                <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/arduino.webp" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>Arduino Uno</h4>
+                    <button onclick="purchaseEquipement('Arduino Uno')">Add to Book</button>
+                </div>
+                <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/esp32.jpg" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>ESp32</h4>
+                    <button onclick="purchaseEquipement('Esp32')">Add to Book</button>
+                </div>
+                <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/rasberry.jpg" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>Rasberry</h4>
+                    <button onclick="purchaseEquipement('Rasberry')">Add to Book</button>
+                </div>
+                  <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/motion.jpg" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>Motion Sensor</h4>
+                    <button onclick="purchaseEquipement('Motion Sensor')">Add to Book</button>
+                </div>
+                  <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/temperature.jpg" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>Temperature Sensor</h4>
+                    <button onclick="purchaseEquipement('Temperature Sensor')">Add to Book</button>
+                </div>
+                  <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/humidity.jpeg" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>Humidity Sensor</h4>
+                    <button onclick="purchaseEquipement('Humidity Sensor')">Add to Book</button>
+                </div>
+                  <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/ultrasonic.webp" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>Ultrasonic Sensor</h4>
+                    <button onclick="purchaseEquipement('Ultrasonic Sensor')">Add to Book</button>
+                </div>
+                 <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/ldr.jpg" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>LDR Sensor</h4>
+                    <button onclick="purchaseEquipement('LDR Sensor')">Add to Book</button>
+                </div>
+                  <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/gsm.webp" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>GSM Module</h4>
+                    <button onclick="purchaseEquipement('GSM Module')">Add to Book</button>
+                </div>
+                  <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/solar.webp" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>Mini Solar Panel</h4>
+                    <button onclick="purchaseEquipement('Mini Solar Panel')">Add to Book</button>
+                </div>
+                  <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/servo.webp" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>Servo Motor</h4>
+                    <button onclick="purchaseEquipement('Servo Motor')">Add to Book</button>
+                </div>
+                 <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/dc.webp" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>DC Gear Motor</h4>
+                    <button onclick="purchaseEquipement('DC Gear Motor')">Add to Book</button>
+                </div>
+                <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/water.webp" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>Water level Controller</h4>
+                    <button onclick="purchaseEquipement('Water level Controller')">Add to Book</button>
+                </div>
+                 <div class="equipement-card" style="border:1px solid #ccc; padding:10px; width:200px; text-align:center;">
+                    <img src="../IMAGE/breadboard.webp" style="width:100%;height:120px;object-fit:cover;">
+                    <h4>breadboard</h4>
+                    <button onclick="purchaseEquipement('breadboard')">Add to Book</button>
+                </div>
+
+            </div>
+            <script>
+                function purchaseEquipement(name) {
+                    alert( name + ' is Booked for you!');
+                    // You can add AJAX here to handle purchase requests
+                }
+            </script>
+        </section>
+
+        <section id="fund" class="section active">
+            <h2>Grant Fund</h2>
+            <p>Manage grant funds here.</p>
+    
+            <!-- Grant fund requests table -->
+            <h3>Fund Requests</h3>
+            <table>
+            <thead>
+                <tr>
+                <th>User</th>
+                <th>Amount</th>
+                <th>Purpose</th>
+                <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="fundRequestsTable">
+                <!-- Dynamic fund requests will be loaded here -->
+            </tbody>
+            </table>
+        </section>
+
+        <section id="reports" class="section active">
+            <h2>Reports</h2>
+            <p>View and generate reports here.</p>
+
+            <div class ="report-options">
+                <button onclick="generateReport('members')">Member Report</button>
+                <button onclick="generateReport('projects')">Project Report</button>
+                <button onclick="generateReport('funds')">Fund Report</button>
+                <button onclick="generateReport('equipment')">Equipment Report</button>
+            </div>
+            <script>
+                function generateReport(type) {
+                    alert('Generating ' + type + ' report...');
+                }
+            </script>
+        </section>
+
+        <section id="settings" class="section active">
+            <h2>Settings</h2>
+            <p>Update your profile here and manage settings.</p>
+
+            <div class="settings-form">
+                <form>
+                    <label for="username">Username:</label><br>
+                    <input type="text" id="username" name="username" value="Iqramul Kabir"><br>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" value="ikh1998@gmail.com"><br>
+                    <label for="password">Change Password:</label><br>
+                    <input type="password" id="password" name="password"><br>
+                    <button type="submit">Update Profile</button>
+                </form>
+            </div>
+        </section>
+
+   
+        <div id="profileModal" style="display:none;">
+            <h3>Member Profile</h3>
+            <p id="profileDetails"></p>
+            <button onclick="closeModal('profileModal')">Close</button>
+        </div>
+        <div id="projectModal" style="display:none;">
+            <h3>Project Details</h3>
+            <p id="projectDetails"></p>
+            <button onclick="closeModal('projectModal')">Close</button>
+        </div>
+
+        <script>
+            function viewProfile(email) {
+            document.getElementById('profileDetails').innerText = "Profile details for " + email;
+            document.getElementById('profileModal').style.display = 'block';
+            }
+            function editProfile(email) {
+            document.getElementById('profileDetails').innerText = "Edit profile for " + email;
+            document.getElementById('profileModal').style.display = 'block';
+            }
+            function viewProject(name) {
+            document.getElementById('projectDetails').innerText = "Project details for " + name;
+            document.getElementById('projectModal').style.display = 'block';
+            }
+            function editProject(name) {
+            document.getElementById('projectDetails').innerText = "Edit project: " + name;
+            document.getElementById('projectModal').style.display = 'block';
+            }
+            function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+            }
+
+            // Example grant fund form submission (no real database, just demo)
+            document.getElementById('grantFundForm').onsubmit = function(e) {
+            e.preventDefault();
+            const user = document.getElementById('user').value;
+            const amount = document.getElementById('amount').value;
+            const purpose = document.getElementById('purpose').value;
+            const table = document.getElementById('fundRequestsTable');
+            const row = table.insertRow();
+            row.insertCell(0).innerText = user;
+            row.insertCell(1).innerText = amount;
+            row.insertCell(2).innerText = purpose;
+            row.insertCell(3).innerText = 'Pending';
+            this.reset();
+            }
+
+            // --- Database connection via AJAX (PHP backend required) ---
+            // Load members from database
+            fetch('../API/get_members.php')
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.getElementById('memberTableBody');
+                    tbody.innerHTML = '';
+                    data.forEach(member => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${member.name}</td>
+                            <td>${member.email}</td>
+                            <td>${member.role}</td>
+                            <td>
+                                <button onclick="viewProfile('${member.email}')">View</button>
+                                <button onclick="editProfile('${member.email}')">Edit</button>
+                            </td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                });
+
+            // Load projects from database
+            fetch('../API/get_projects.php')
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.getElementById('projectTableBody');
+                    tbody.innerHTML = '';
+                    data.forEach(project => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                            <td>${project.name}</td>
+                            <td>${project.lead}</td>
+                            <td>${project.status}</td>
+                            <td>
+                                <button onclick="viewProject('${project.name}')">View</button>
+                                <button onclick="editProject('${project.name}')">Edit</button>
+                            </td>
+                        `;
+                        tbody.appendChild(tr);
+                    });
+                });
+
+            // Load fund requests from database
+            function loadFundRequests() {
+                fetch('../API/get_fund_requests.php')
+                    .then(response => response.json())
+                    .then(data => {
+                        const tbody = document.getElementById('fundRequestsTable');
+                        tbody.innerHTML = '';
+                        data.forEach(req => {
+                            const tr = document.createElement('tr');
+                            tr.innerHTML = `
+                                <td>${req.user}</td>
+                                <td>${req.amount}</td>
+                                <td>${req.purpose}</td>
+                                <td>${req.status}</td>
+                            `;
+                            tbody.appendChild(tr);
+                        });
+                    });
+            }
+            loadFundRequests();
+
+            // Initial dashboard stats load (dummy values for demo)
+            document.getElementById('totalMembers').innerText = '1';
+            document.getElementById('ongoingProjects').innerText = '2';
+            document.getElementById('pendingFunds').innerText = '1';
+            document.getElementById('bookedEquipment').innerText = '5';
+            // --- End of AJAX section --
+            // Show dashboard by default
+            showSection('dashboard');
+            // Show dashboard by default
+            showSection('dashboard');
+
+        </script>
+
+
+   </div>
+
 </html>

@@ -35,6 +35,7 @@
             } elseif(!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/", $password)){
                     $passwordError = "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character, and be at least 8 characters long";
             }
+
             if ($usernameError === "" && $passwordError === "" && $emailError === "") {
                 if ($username !== $validusername) {
                     $usernameError = "Invalid username.";

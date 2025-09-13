@@ -2,14 +2,14 @@
 <html>
     <head>
         <title>Registration</title>
-    </head>
-    <body>      
-        <form method = "POST" action = "../VIEW/register.php">
         <link rel="stylesheet" href="../CSS/style.css">
+    </head>
+    <body> 
+        
+        <form method = "POST" action = "../VIEW/register.php">
 
         <h2 align="left">Registration Form</h2>
         <p align="left">Please fill in this form to create an account.</p>
-        <hr>
 
         <fieldset>
             <legend>Account Information</legend>
@@ -64,14 +64,14 @@
         </tr>
 
         <tr>
-            <td><label for = "phone">Phone Number:</lbel></td>
-            <td><input type = "text" id = "phone" name = "phone"></td>
+            <td><label for = "phone">Phone Number:</label></td>
+            <td><input type = "text" id = "phone" name = "phone" required></td>
         </tr>
         </table>
         </fieldset>
 
         <button type = "submit">Submit</button><br><br>
-        <a href = "adminlogin.html">Already have an account? Login here.</a></tr>
+        <a href = "login.html">Already have an account? Login here.</a></tr>
 
         </form>
     </body>

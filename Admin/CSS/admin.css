@@ -2,12 +2,12 @@ body {
 
     margin: 0;
     padding: 0;
-    background-color: gray;
+    background-color: rgb(255, 255, 255);
 }
 
 .sidebar{
-   
-    padding: 50px;
+    margin: 0;
+    padding: 0;
     height: 100%;
     width: 350px;
     position: fixed;
@@ -17,12 +17,15 @@ body {
 }
 
 img{
+    margin: 0;
+    padding: 20px;
     width: 50px;
+    height: 50px;
     float:left;
     border-radius: 50%;
 }
 
-.sidebar ul li{
+.sidebar .nav-links{
     margin: auto;
     padding: 30px;
     list-style: none;
@@ -31,12 +34,21 @@ img{
     
 }
 
-.sidebar ul li a{
+.sidebar .nav-links li{
+    padding: 15px 10px;
     color: white;
     text-decoration: none;
 }
 
-.sidebar ul li:hover{
+.sidebar .nav-links li a{
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sidebar ul li a:hover{
     background-color: rgb(105, 99, 99);
     cursor: pointer;
 }
@@ -51,10 +63,135 @@ h1{
     
 }
 
+
+
 content{
     
-    text-align: center;
+    margin-left: 350px; 
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 
 }
+
+.section{
+    display: none;
+    margin-left: 350px;
+    padding: 20px;
+    height: 100%;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    animation: fadeIn 200ms ease-in;
+}
+
+.section.active{
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.dashboard-cards{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: black;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: rgb(171, 162, 162);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: rgb(119, 181, 148);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: gray;
+}
+
+img.equipment {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+img.equipment.selected {
+    border-color: rgb(164, 50, 73);
+}
+
+form {
+    margin-top: 20px;
+}
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+form input, form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: rgb(168, 163, 163);
+    color: rgb(0, 0, 0);
+}
+form button {
+    width: auto;
+}
+form button:hover {
+    background-color: gray;
+}
+form button:disabled {
+    background-color: darkgray;
+    cursor: not-allowed;
+}
+form table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+form table, form th, form td {
+    border: 1px solid white;
+}
+form th, form td {
+    padding: 10px;
+    text-align: left;
+}
+form th {
+    background-color: rgb(105, 99, 99);
+}
+form .error {
+    color: red;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+form .success {
+    color: green;
+    margin-top: -15px;
+    margin-bottom: 15px;
+}
+
+
+
