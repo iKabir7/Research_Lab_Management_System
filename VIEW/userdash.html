@@ -1,0 +1,234 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/user.css">
+</head>
+<body>
+
+    <div class="topbar">
+
+       <div class="profile">
+        <img src="../IMAGE/user.jpeg">
+        <span>Welcome, Khadija Akter!</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a onclick="showSection('dashboard')">Dashboard</a></li>
+        <li><a onclick="showSection('publication')">My Publication</a></li>
+        <li><a onclick="showSection('project')">Assign project</a></li>  
+        <li><a onclick="showSection('proposal')">Project proposal</a></li>
+        <li><a onclick="showSection('notice')">Notice</a></li>
+        <li><a onclick="showSection('fund')">Fund Request</a></li>
+        <li><a onclick="showSection('equipement')">Book Equipement</a></li>   
+        <li><a onclick="showSection('setting')">Settings</a></li>
+        <li><a onclick="logout()">Logout</a></li>
+
+    </ul>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+            document.getElementById(sectionId).scrollIntoview({behavior: "smooth"});
+        }
+    </script>
+
+    <div class="content">
+
+        <section id="dashboard" class="section active">
+            <h2>Dashboard</h2>
+            <p>Welcome to your dashboard! Here you can manage your publications, projects, and more.</p>
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>Total Publications</h3>
+                    <p>2</p>
+                </div>
+                <div class="card">
+                    <h3>Ongoing Projects</h3>
+                    <p>2</p>
+                </div>
+                <div class="card">
+                    <h3>Pending Proposals</h3>
+                    <p>1</p>
+                </div>
+                <div class="card">
+                    <h3>Fund Requests</h3>
+                    <p>1</p>
+                </div>   
+
+            </div>
+            
+
+            <image src="../IMAGE/dashboard.png" class="dashboard-image"></image>
+
+        </section>
+
+        <section id="publication" class="section">
+            <h2>My Publication</h2>
+            <p>Explore my latest research articles and conference papers.</p>
+            <section class="pub-list">
+               <article class="pub-card">
+                <div class="pub-body">
+                    <div>
+                        <span class="badge">Article</span>
+                        <span class="badge publisher">QPAIN</span><br>
+                    </div>
+                    <h2 class="pub-title">IoT-Enabled Smart Window System for Environmental Adaptation in Home 4.0</h2><br>
+                        <div class="authors">Khadija Akter, Md. Iqramul Kabir</div><br>
+                        <div class="pub-meta">2025 | DOI: <a href="https://doi.org/10.1109/ACCESS.2023.1234567">DOI: 10.1109/ACCESS.2023.1234567</a></div>
+                        <p class="pub-abstract">This paper presents an IoT-enabled smart window system designed to adapt to environmental changes in a Home 4.0 setting. The system utilizes sensors to monitor temperature, humidity, and light intensity, allowing for automatic adjustment of window blinds and ventilation to enhance energy efficiency and indoor comfort.</p>
+                </div>
+            </article>
+
+            <article class="pub-card">
+                <div class="pub-body"> 
+                    <div>
+                        <span class="badge">Conference</span>
+                        <span class="badge publisher">IEEE</span>
+                    </div>
+                    <h2 class="pub-title">Quantum Machine Learning for Enhanced Data Security in IoT Networks</h2><br>
+                        <div class="authors">Khadija Akter, Md. Iqramul Kabir</div><br>
+                        <div class="pub-meta">2025 | DOI: <a href="https://doi.org/10.1234/ijai.2023.5678">DOI: 10.1234/ijai.2023.5678</a></div>
+
+                        <p class="pub-abstract">This conference paper explores the integration of quantum machine learning techniques to bolster data security within IoT networks. By leveraging quantum algorithms, the proposed approach aims to enhance encryption methods and intrusion detection systems, thereby mitigating vulnerabilities inherent in traditional IoT architectures.</p> 
+                </div>
+               </article>
+            </section>
+        </section>
+
+
+        <section id="project" class="section">
+                <h2>Assigned Projects</h2>
+                <p>Overview of projects assigned to me.</p>
+          <section class="proj-list">
+            <article class="proj-card">
+                <div class="proj-body">
+                    <h2 class="proj-title">Smart Agriculture System Using IoT</h2>
+                    <div class="proj-meta">Assigned: April 15, 2024 | Due: Dec 15, 2024</div>
+                    <p class="proj-desc">Develop an IoT-based system to monitor and optimize agricultural practices, including soil moisture, weather conditions, and crop health.</p>
+                </div>  
+            </article>
+            <article class="proj-card">
+                <div class="proj-body">
+                    <h2 class="proj-title">AI-Powered Healthcare Diagnostics</h2>
+                    <div class="proj-meta">Assigned: Feb 10, 2024 | Due : Nov 30, 2024</div>
+                    <p class="proj-desc">Create an AI system to assist in medical diagnostics by analyzing medical images and patient data to improve accuracy and speed of diagnosis.</p>
+                </div>      
+            </article>
+          </section>
+        </section>
+
+
+
+        <section id="proposal" class="section">
+            <h2>Project Proposal</h2>
+            <p>Submit and manage your project proposals.</p>
+            <div class="proposal-form">
+                <h3>Submit New Proposal</h3>
+                <form>
+                    <label for="title">Project Title:</label><br>
+                    <input type="text" id="title" name="title" required><br><br>
+
+                    <label for="description">Description:</label><br>
+                    <textarea id="description" name="description" rows="4" required></textarea><br><br>
+
+                    <label for="budget">Estimated Budget:</label><br>
+                    <input type="number" id="budget" name="budget" required><br><br>
+
+                    <label for="timeline">Proposed Timeline:</label><br>
+                    <input type="text" id="timeline" name="timeline" required><br><br>
+
+                    <input type="submit" value="Submit Proposal">
+                </form>
+            </div>
+        </section>
+
+
+
+        <section id="notice" class="section">
+            <h2>Notice</h2>
+            <p>Check the latest notices and announcements.</p>
+
+            <div class="notice-list">
+                <div class="notice-card">
+                    <h3>Research Funding Opportunity</h3>
+                    <p>Date: June 1, 2024</p>
+                    <p>Details: New funding opportunities are available for research projects in AI and IoT. Apply by July 15, 2024.</p>
+                </div>
+                <div class="notice-card">
+                    <h3>Upcoming Conference</h3>
+                    <p>Date: May 20, 2024</p>
+                    <p>Details: The International Conference on Emerging Technologies will be held on August 10-12, 2024. Submit your papers by June 30, 2024.</p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="fund" class="section">
+            <h2>Fund Request</h2>
+            <p>Request funds for your projects and research.</p>
+
+            <div class="fund-form">
+                <h3>Request New Funds</h3>
+                <form>
+                    <label for="project">Project Name:</label><br>
+                    <input type="text" id="project" name="project" required><br><br>
+
+                    <label for="amount">Amount Requested:</label><br>
+                    <input type="number" id="amount" name="amount" required><br><br>
+
+                    <label for="justification">Justification:</label><br>
+                    <textarea id="justification" name="justification" rows="4" required></textarea><br><br>
+
+                    <input type="submit" value="Submit Fund Request">
+                </form>
+        </section>
+
+
+
+        <section id="equipement" class="section">
+            <h2>Book Equipement</h2>
+            <p>Reserve equipment for your research needs.</p>
+        </section>
+
+        <section id="setting" class="section">
+            <h2>Settings</h2>
+            <p>Manage your account settings and preferences.</p>
+            <div class="settings-form">
+                <h3>Update Profile</h3>
+                <form>
+                    <label for="name">Full Name:</label><br>
+                    <input type="text" id="name" name="name" value="Khadija Akter" required><br><br>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" value="kh.akter0217@gmail.com" required ><br><br>
+                    <label for="password">Change Password:</label><br>
+                    <input type="password" id="password" name="password" required><br><br>
+                    <label for image>Change Profile Picture:</label><br>
+                    <input type="file" id="image" name="image" accept="image/*"><br><br>
+                    <input type="submit" value="Update Profile">
+                </form>
+            </div>
+        </section>
+
+
+        <script>
+            function logout(){
+            if (confirm("Are you sure you want to logout?")) {
+                window.location.href = "../login.html";
+            } 
+        }
+        </script>
+
+        </section>
+
+        
+    </div>
+</body>
+</html>
